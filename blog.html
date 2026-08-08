@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writing — Lutfat Abimbola Usman</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site">
+  <nav class="nav">
+    <div class="brand">DR. LUTFAT <strong>USMAN</strong></div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="wrap" id="main-content">
+  <!-- content injected by script below -->
+</main>
+
+<footer class="site">
+  <div class="wrap footer-row">
+    <div class="footer-links">
+      <a href="mailto:ulutfat@gmail.com">Email</a>
+      <a href="https://orcid.org/0000-0003-1826-8614">ORCID</a>
+      <a href="https://github.com/drlutfat-usman">GitHub</a>
+      <a href="https://www.linkedin.com/in/lutfat-abimbola-usman-b85456325">LinkedIn</a>
+    </div>
+    <div class="footer-mark eyebrow">est. 2026</div>
+  </div>
+</footer>
+
+<script src="posts-data.js"></script>
+<script>
+  const main = document.getElementById('main-content');
+
+  function renderList() {
+    const sorted = [...POSTS].sort((a,b) => b.date.localeCompare(a.date));
+    const items = sorted.length ? sorted.map(p => `
+      <a class="post-card" href="blog.html?post=${p.slug}">
+        <div class="post-meta">${p.date} &middot; ${p.tag}</div>
+        <h3>${p.title}</h3>
+        <p class="post-excerpt">${p.excerpt}</p>
+      </a>
+    `).join('') : '<div class="empty-state">No posts yet — the first one is on its way.</div>';
+
+    main.innerHTML = `
+      <section style="padding-top:56px;">
+        <div class="eyebrow">Writing</div>
+        <h1 style="font-size:clamp(28px,4vw,42px); margin-top:10px;">Field notes.</h1>
+        <p class="lede" style="max-width:60ch;">Research notes, translation-gap thinking, and the slower record of building a research career across three continents.</p>
+      </section>
+      <section class="divider-top">
+        <div class="card-list">${items}</div>
+      </section>
+    `;
+  }
+
+  function renderPost(slug) {
+    const post = POSTS.find(p => p.slug === slug);
+    if (!post) { renderList(); return; }
+    main.innerHTML = `
+      <article class="reader" style="padding-top:56px;">
+        <a class="back-link" href="blog.html">&larr; All writing</a>
+        <div class="post-meta">${post.date} &middot; ${post.tag}</div>
+        <h1>${post.title}</h1>
+        <div class="reader-body">${post.body}</div>
+      </article>
+    `;
+    document.title = post.title + ' — Lutfat Abimbola Usman';
+  }
+
+  let slug = null;
+  try {
+    const params = new URLSearchParams(window.location.search);
+    slug = params.get('post');
+  } catch (e) { slug = null; }
+  if (slug) { renderPost(slug); } else { renderList(); }
+</script>
+
+</body>
+</html>

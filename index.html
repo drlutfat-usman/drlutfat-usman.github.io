@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lutfat Abimbola Usman — Multi-Omics Scientist</title>
+<meta name="description" content="Personal site of Dr. Lutfat Abimbola Usman — multi-omics scientist, translating biological complexity into diagnosis, for people and for planet.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site">
+  <nav class="nav">
+    <div class="brand">DR. LUTFAT <strong>USMAN</strong></div>
+    <ul>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="blog.html">Writing</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Multi-Omics Scientist &middot; São Paulo, Brazil</div>
+      <h1>Translating biological complexity into diagnosis — for people, and for planet.</h1>
+      <p class="lede">Postdoctoral researcher building computational frameworks that turn multi-omics data into deployable diagnostic tools — starting with human disease, extending toward environmental science.</p>
+      <div class="tags">
+        <span class="tag">Precision Diagnostics</span>
+        <span class="tag">Computational Biology</span>
+        <span class="tag clay">Climate &amp; Carbon Science</span>
+      </div>
+    </div>
+    <div>
+      <svg class="hero-motif" viewBox="0 0 420 420" role="img" aria-label="A network diagram flowing into a leaf, representing the connection between computational biology and environmental science">
+        <g stroke="#0B5E3E" stroke-width="1.6" fill="none" opacity="0.9">
+          <line x1="60" y1="120" x2="110" y2="90"/>
+          <line x1="60" y1="120" x2="95" y2="165"/>
+          <line x1="110" y1="90" x2="150" y2="130"/>
+          <line x1="95" y1="165" x2="150" y2="130"/>
+          <line x1="95" y1="165" x2="120" y2="210"/>
+          <line x1="150" y1="130" x2="185" y2="175"/>
+          <line x1="120" y1="210" x2="185" y2="175"/>
+        </g>
+        <g fill="#C9922F">
+          <circle cx="60" cy="120" r="5"/>
+          <circle cx="110" cy="90" r="5"/>
+          <circle cx="95" cy="165" r="5"/>
+          <circle cx="150" cy="130" r="5"/>
+          <circle cx="120" cy="210" r="5"/>
+          <circle cx="185" cy="175" r="5"/>
+        </g>
+        <line x1="195" y1="180" x2="255" y2="200" stroke="#0B5E3E" stroke-width="1.4" stroke-dasharray="4 4" opacity="0.6"/>
+        <g transform="translate(255,110)">
+          <path d="M40 0 C75 15, 90 60, 40 190 C-10 60, 5 15, 40 0 Z" fill="#0B5E3E" opacity="0.92"/>
+          <line x1="40" y1="8" x2="40" y2="182" stroke="#F7F4EC" stroke-width="2"/>
+          <line x1="40" y1="40" x2="18" y2="25" stroke="#F7F4EC" stroke-width="1.4"/>
+          <line x1="40" y1="40" x2="62" y2="25" stroke="#F7F4EC" stroke-width="1.4"/>
+          <line x1="40" y1="80" x2="14" y2="63" stroke="#F7F4EC" stroke-width="1.4"/>
+          <line x1="40" y1="80" x2="66" y2="63" stroke="#F7F4EC" stroke-width="1.4"/>
+          <line x1="40" y1="120" x2="16" y2="105" stroke="#F7F4EC" stroke-width="1.4"/>
+          <line x1="40" y1="120" x2="64" y2="105" stroke="#F7F4EC" stroke-width="1.4"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <section class="divider-top">
+    <div class="section-head"><h2>About</h2></div>
+    <p>I am a postdoctoral researcher at Hospital das Clínicas, University of São Paulo, working at the intersection of transcriptomics, metabolomics, and computational diagnostics. My research asks a simple question in a complex way: how do we turn the enormous amount of multi-omics data science now generates into tools that actually reach the people who need them — a clinician deciding on a diagnosis, a policymaker deciding on a climate intervention.</p>
+    <blockquote class="pull">Every research programme I build starts from the same observation: rich multi-omics knowledge exists in the literature, and rarely reaches deployable tools.</blockquote>
+    <p>My path runs through Nigeria, Malaysia, and Brazil — three research environments that shape how I think about building tools that work outside of ideal, well-resourced conditions. <a href="portfolio.html">See the full portfolio →</a></p>
+  </section>
+
+  <section class="divider-top">
+    <div class="section-head">
+      <h2>Latest Writing</h2>
+      <a class="see-all" href="blog.html">All posts →</a>
+    </div>
+    <div id="latest-posts" class="card-list"></div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap footer-row">
+    <div class="footer-links">
+      <a href="mailto:ulutfat@gmail.com">Email</a>
+      <a href="https://orcid.org/0000-0003-1826-8614">ORCID</a>
+      <a href="https://github.com/drlutfat-usman">GitHub</a>
+      <a href="https://www.linkedin.com/in/lutfat-abimbola-usman-b85456325">LinkedIn</a>
+    </div>
+    <div class="footer-mark eyebrow">est. 2026</div>
+  </div>
+</footer>
+
+<script src="posts-data.js"></script>
+<script>
+  const list = document.getElementById('latest-posts');
+  const recent = POSTS.slice(0, 3);
+  if (recent.length === 0) {
+    list.innerHTML = '<div class="empty-state">No posts yet — the first one is on its way.</div>';
+  } else {
+    list.innerHTML = recent.map(p => `
+      <a class="post-card" href="blog.html?post=${p.slug}">
+        <div class="post-meta">${p.date} &middot; ${p.tag}</div>
+        <h3>${p.title}</h3>
+        <p class="post-excerpt">${p.excerpt}</p>
+      </a>
+    `).join('');
+  }
+</script>
+
+</body>
+</html>
