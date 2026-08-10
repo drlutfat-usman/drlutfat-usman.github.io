@@ -178,6 +178,13 @@
     </div>
   </section>
 
+  <section class="divider-top">
+    <div class="section-head"><h2>Certifications</h2></div>
+    <div id="certs-list" class="card-list">
+      <div class="empty-state">Loading…</div>
+    </div>
+  </section>
+
 </main>
 
 <footer class="site">
@@ -191,6 +198,29 @@
     <div class="footer-mark eyebrow">est. 2026</div>
   </div>
 </footer>
+
+<script>
+  fetch('certificates-index.json')
+    .then(r => r.json())
+    .then(certs => {
+      const list = document.getElementById('certs-list');
+      if (certs.length === 0) {
+        list.innerHTML = '<div class="empty-state">No certifications added yet.</div>';
+        return;
+      }
+      list.innerHTML = certs.map(c => `
+        <a class="post-card" href="${c.file}" target="_blank" rel="noopener">
+          <div class="post-meta">${c.date} &middot; ${c.issuer}</div>
+          <h3>${c.title}</h3>
+          <p class="post-excerpt">View certificate &rarr;</p>
+        </a>
+      `).join('');
+    })
+    .catch(() => {
+      document.getElementById('certs-list').innerHTML =
+        '<div class="empty-state">Could not load certifications right now.</div>';
+    });
+</script>
 
 </body>
 </html>

@@ -22,7 +22,16 @@
 </header>
 
 <main class="wrap" id="main-content">
-  <!-- content injected by script below -->
+  <section style="padding-top:56px;">
+    <div class="eyebrow">Writing</div>
+    <h1 style="font-size:clamp(28px,4vw,42px); margin-top:10px;">Field notes.</h1>
+    <p class="lede" style="max-width:60ch;">Research notes, translation-gap thinking, and the slower record of building a research career across three continents.</p>
+  </section>
+  <section class="divider-top">
+    <div id="content-area" class="card-list">
+      <div class="empty-state">Loading…</div>
+    </div>
+  </section>
 </main>
 
 <footer class="site">
@@ -37,44 +46,35 @@
   </div>
 </footer>
 
-<script src="posts-data.js"></script>
 <script>
-  const main = document.getElementById('main-content');
+  const area = document.getElementById('content-area');
 
-  function renderList() {
-    const sorted = [...POSTS].sort((a,b) => b.date.localeCompare(a.date));
-    const items = sorted.length ? sorted.map(p => `
+  function renderList(posts) {
+    const sorted = [...posts].sort((a,b) => b.date.localeCompare(a.date));
+    if (sorted.length === 0) {
+      area.innerHTML = '<div class="empty-state">No posts yet — the first one is on its way.</div>';
+      return;
+    }
+    area.innerHTML = sorted.map(p => `
       <a class="post-card" href="blog.html?post=${p.slug}">
         <div class="post-meta">${p.date} &middot; ${p.tag}</div>
         <h3>${p.title}</h3>
         <p class="post-excerpt">${p.excerpt}</p>
       </a>
-    `).join('') : '<div class="empty-state">No posts yet — the first one is on its way.</div>';
-
-    main.innerHTML = `
-      <section style="padding-top:56px;">
-        <div class="eyebrow">Writing</div>
-        <h1 style="font-size:clamp(28px,4vw,42px); margin-top:10px;">Field notes.</h1>
-        <p class="lede" style="max-width:60ch;">Research notes, translation-gap thinking, and the slower record of building a research career across three continents.</p>
-      </section>
-      <section class="divider-top">
-        <div class="card-list">${items}</div>
-      </section>
-    `;
+    `).join('');
   }
 
-  function renderPost(slug) {
-    const post = POSTS.find(p => p.slug === slug);
-    if (!post) { renderList(); return; }
-    main.innerHTML = `
-      <article class="reader" style="padding-top:56px;">
+  function renderPost(meta, bodyHtml) {
+    area.parentElement.className = '';
+    area.innerHTML = `
+      <article class="reader">
         <a class="back-link" href="blog.html">&larr; All writing</a>
-        <div class="post-meta">${post.date} &middot; ${post.tag}</div>
-        <h1>${post.title}</h1>
-        <div class="reader-body">${post.body}</div>
+        <div class="post-meta">${meta.date} &middot; ${meta.tag}</div>
+        <h1>${meta.title}</h1>
+        <div class="reader-body">${bodyHtml}</div>
       </article>
     `;
-    document.title = post.title + ' — Lutfat Abimbola Usman';
+    document.title = meta.title + ' — Lutfat Abimbola Usman';
   }
 
   let slug = null;
@@ -82,7 +82,21 @@
     const params = new URLSearchParams(window.location.search);
     slug = params.get('post');
   } catch (e) { slug = null; }
-  if (slug) { renderPost(slug); } else { renderList(); }
+
+  fetch('posts-index.json')
+    .then(r => r.json())
+    .then(posts => {
+      if (!slug) { renderList(posts); return; }
+      const meta = posts.find(p => p.slug === slug);
+      if (!meta) { renderList(posts); return; }
+      fetch(`posts/${slug}.html`)
+        .then(r => r.text())
+        .then(bodyHtml => renderPost(meta, bodyHtml))
+        .catch(() => renderList(posts));
+    })
+    .catch(() => {
+      area.innerHTML = '<div class="empty-state">Could not load posts right now.</div>';
+    });
 </script>
 
 </body>

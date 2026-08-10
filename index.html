@@ -81,7 +81,9 @@
       <h2>Latest Writing</h2>
       <a class="see-all" href="blog.html">All posts →</a>
     </div>
-    <div id="latest-posts" class="card-list"></div>
+    <div id="latest-posts" class="card-list">
+      <div class="empty-state">Loading…</div>
+    </div>
   </section>
 
 </main>
@@ -98,21 +100,29 @@
   </div>
 </footer>
 
-<script src="posts-data.js"></script>
 <script>
-  const list = document.getElementById('latest-posts');
-  const recent = POSTS.slice(0, 3);
-  if (recent.length === 0) {
-    list.innerHTML = '<div class="empty-state">No posts yet — the first one is on its way.</div>';
-  } else {
-    list.innerHTML = recent.map(p => `
-      <a class="post-card" href="blog.html?post=${p.slug}">
-        <div class="post-meta">${p.date} &middot; ${p.tag}</div>
-        <h3>${p.title}</h3>
-        <p class="post-excerpt">${p.excerpt}</p>
-      </a>
-    `).join('');
-  }
+  fetch('posts-index.json')
+    .then(r => r.json())
+    .then(posts => {
+      const list = document.getElementById('latest-posts');
+      const sorted = [...posts].sort((a,b) => b.date.localeCompare(a.date));
+      const recent = sorted.slice(0, 3);
+      if (recent.length === 0) {
+        list.innerHTML = '<div class="empty-state">No posts yet — the first one is on its way.</div>';
+        return;
+      }
+      list.innerHTML = recent.map(p => `
+        <a class="post-card" href="blog.html?post=${p.slug}">
+          <div class="post-meta">${p.date} &middot; ${p.tag}</div>
+          <h3>${p.title}</h3>
+          <p class="post-excerpt">${p.excerpt}</p>
+        </a>
+      `).join('');
+    })
+    .catch(() => {
+      document.getElementById('latest-posts').innerHTML =
+        '<div class="empty-state">Could not load posts right now.</div>';
+    });
 </script>
 
 </body>
