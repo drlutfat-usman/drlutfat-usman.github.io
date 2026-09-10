@@ -54,5 +54,26 @@
     "tag": "Field Notes",
     "title": "Starting This Space",
     "excerpt": "A short note on why this site exists, and what I plan to write about here."
+  },
+  {
+    "slug": "the-woman-myriad-of-hormones",
+    "date": "2026-08-09",
+    "tag": "Endocrinology Review",
+    "title": "The Woman: A Myriad of Hormones — A Comprehensive Biochemical Review of the Female Endocrine System",
+    "excerpt": "A comprehensive, fully-referenced review of the female endocrine system — from the HPG axis and menstrual cycle through pregnancy, menopause, thyroid, stress, metabolic hormones, and bone — synthesizing 93 primary and review sources."
+  },
+  {
+    "slug": "the-man-hormones-neural-tubes",
+    "date": "2026-08-09",
+    "tag": "Neuroendocrinology Review",
+    "title": "The Man: Hormones, Neural Tubes, and the Biochemistry of Sexual Differentiation",
+    "excerpt": "A review synthesizing neuroembryology, endocrine biochemistry, and the molecular mechanisms of hormone-driven sexual differentiation of the male nervous system."
+  },
+  {
+    "slug": "ants-products-neurodegeneration",
+    "date": "2026-08-09",
+    "tag": "Neuroscience Review",
+    "title": "Ants and Their Products in Neurodegeneration",
+    "excerpt": "A reference-verified review of the scientific literature on ants and ant-derived products in relation to neurodegenerative disease, covering Polyrhachis vicina, ant venom pharmacology, and the shared molecular mechanisms of Alzheimer's, Parkinson's, and related diseases."
   }
 ]
