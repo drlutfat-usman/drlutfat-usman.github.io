@@ -75,5 +75,33 @@
     "tag": "Neuroscience Review",
     "title": "Ants and Their Products in Neurodegeneration",
     "excerpt": "A reference-verified review of the scientific literature on ants and ant-derived products in relation to neurodegenerative disease, covering Polyrhachis vicina, ant venom pharmacology, and the shared molecular mechanisms of Alzheimer's, Parkinson's, and related diseases."
+  },
+  {
+    "slug": "how-air-holds-up-heavy-things",
+    "date": "2026-09-11",
+    "tag": "Physics Explainer",
+    "title": "How Air Holds Up Heavy Things: Buoyancy, Lift, and Pressure at Work",
+    "excerpt": "Airliners, airships, hovercraft, and ekranoplans each stay aloft by a different trick — buoyancy, aerodynamic lift, or confined static pressure. A short tour of the physics behind each."
+  },
+  {
+    "slug": "adaptive-diversity-human-hair-morphology",
+    "date": "2026-09-11",
+    "tag": "Evolutionary Biology Review",
+    "title": "Adaptive Diversity of Human Hair Morphology: Evolutionary Origins and Population-Level Significance",
+    "excerpt": "A review of the evolutionary and genetic evidence behind human hair's variation in curl, shape, and density across populations — thermoregulation, UV protection, water conservation, and the terminology to discuss it precisely."
+  },
+  {
+    "slug": "supplementation-a-pandemic",
+    "date": "2026-09-11",
+    "tag": "Public Health Review",
+    "title": "Supplementation: A Pandemic — The Unregulated Rise of Dietary and Longevity Supplements and Their Clinical Consequences",
+    "excerpt": "A $200 billion industry has grown almost entirely outside the regulatory framework that governs pharmaceuticals. What the resulting evidence gaps look like in the clinic."
+  },
+  {
+    "slug": "nad-supplementation-cancer-risk",
+    "date": "2026-09-11",
+    "tag": "Oncology Review",
+    "title": "The Double-Edged Sword: NAD⁺ Precursor Supplementation and Cancer Risk in the Age of Longevity Medicine",
+    "excerpt": "NAD+ precursors sit at the center of the longevity medicine movement — including for cancer survivors and patients in active treatment. What the evidence on cancer risk actually shows."
   }
 ]
