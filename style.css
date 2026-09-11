@@ -301,6 +301,9 @@ blockquote.pull {
 .reader-body { font-size: 18.5px; }
 .reader-body p { margin: 0 0 20px; }
 .reader-body h2 { font-size: 22px; margin-top: 34px; }
+.reader-body table { border-collapse: collapse; width: 100%; margin: 20px 0; font-size: 15.5px; }
+.reader-body th, .reader-body td { border: 1px solid var(--line, #ddd); padding: 8px 10px; text-align: left; vertical-align: top; }
+.reader-body th { font-family: var(--mono); font-weight: 500; background: rgba(11,94,62,0.05); }
 .back-link { font-family: var(--mono); font-size: 13px; display: inline-block; margin-bottom: 30px; }
 
 .empty-state {
