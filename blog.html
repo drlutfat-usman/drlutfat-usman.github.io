@@ -24,7 +24,7 @@
 </header>
 
 <main class="wrap" id="main-content">
-  <section style="padding-top:56px;">
+  <section id="writing-intro" style="padding-top:56px;">
     <div class="eyebrow">Writing</div>
     <h1 style="font-size:clamp(28px,4vw,42px); margin-top:10px;">Field notes.</h1>
     <p class="lede" style="max-width:60ch;">Research notes, translation-gap thinking, and the slower record of building a research career across three continents.</p>
@@ -68,6 +68,8 @@
 
   function renderPost(meta, bodyHtml) {
     area.parentElement.className = '';
+    area.parentElement.style.paddingTop = '48px';
+    document.getElementById('writing-intro').style.display = 'none';
     area.innerHTML = `
       <article class="reader">
         <a class="back-link" href="blog.html">&larr; All writing</a>

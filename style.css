@@ -305,6 +305,13 @@ blockquote.pull {
 .reader-body th, .reader-body td { border: 1px solid var(--line, #ddd); padding: 8px 10px; text-align: left; vertical-align: top; }
 .reader-body th { font-family: var(--mono); font-weight: 500; background: rgba(11,94,62,0.05); }
 .back-link { font-family: var(--mono); font-size: 13px; display: inline-block; margin-bottom: 30px; }
+.reader-body h3 { font-size: 18px; margin-top: 26px; }
+.reader-body figure { margin: 24px 0; background: var(--paper-raised); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+.reader-body figcaption { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); margin-top: 8px; }
+.reader-body ol, .reader-body ul { padding-left: 22px; }
+.reader-body li { margin-bottom: 6px; }
+.reader-body .pdf-link a { font-family: var(--mono); font-size: 13px; display: inline-block; padding: 9px 16px; border: 1px solid var(--teal); border-radius: 6px; }
+@media (max-width: 600px) { .reader-body table { display: block; overflow-x: auto; font-size: 14px; } }
 
 .empty-state {
   padding: 40px 0;
